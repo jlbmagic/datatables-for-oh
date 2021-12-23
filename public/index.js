@@ -15,7 +15,11 @@ window.loadData = function (json) {
     { data: "fieldData.Id", title: "ID", visible: false },
     { data: "fieldData.City", title: "City" },
     { data: "fieldData.CompanyName", title: "Company" },
-    { data: "fieldData.State", title: "State" },
+    {
+      data: "fieldData.State",
+      title: "State",
+      render: (data, type, row) => data + "!!!",
+    },
     { data: "fieldData.StreetAddress", title: "Address" },
   ];
 
@@ -24,9 +28,9 @@ window.loadData = function (json) {
   if (table) table.destroy();
   table = $("#dtable").DataTable({
     paging: true,
-    pageLength: 20,
+    pageLength: 3,
     searching: true,
-    colReorder: true,
+    colReorder: false,
     columns: columns,
     data: data,
   });
